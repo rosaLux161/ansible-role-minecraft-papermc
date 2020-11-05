@@ -1,6 +1,6 @@
 # ansible-minecraft-papermc
 
-This role install a completely Minecraft PaperMC server.
+This role installs a completely Minecraft PaperMC server.
 
 ## Variables
 
