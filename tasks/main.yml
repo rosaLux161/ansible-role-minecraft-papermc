@@ -2,7 +2,7 @@
 - name: Fail if not Debian Buster
   fail:
     msg: Currently only Debian Buster is supported
-  when: not ansible_distribution == 'Debian' or not ansible_distribution_version == '10'
+  when: not ansible_distribution == 'Debian' or not ansible_distribution_release == 'buster'
 
 - name: Fail if eula is not accepted
   fail:
