@@ -11,7 +11,7 @@ driver:
 lint: |
   set -e
   yamllint -c .yamllint .
-  ansible-lint
+  ansible-lint -c .ansible-lint
 
 platforms:
   - name: debian-buster-systemd

@@ -10,4 +10,4 @@
   pre_tasks:
 
   roles:
-    - role: ansible-minecraft-papermc
+    - role: ansible-role-minecraft-papermc
