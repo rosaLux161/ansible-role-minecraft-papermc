@@ -6,6 +6,7 @@
     remote_src: yes
     group: '{{ minecraft_papermc_group }}'
     owner: '{{ minecraft_papermc_user }}'
+    mode: '0755'
     extra_opts:
       - '--strip-components=1'
 
