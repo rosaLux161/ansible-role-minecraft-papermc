@@ -20,7 +20,7 @@
   notify:
     - restart-minecraft
 
-- name: Copy server.properties
+- name: Activate server.properties
   copy:
     src: '{{ minecraft_papermc_user_home }}/bin/server.properties.copy'
     dest: '{{ minecraft_papermc_user_home }}/bin/server.properties'
