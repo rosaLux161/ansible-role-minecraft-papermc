@@ -55,6 +55,6 @@
   with_first_found:
     - files:
         - server-icon.png
-      skip: no
+      skip: yes
   notify:
     - restart-minecraft
