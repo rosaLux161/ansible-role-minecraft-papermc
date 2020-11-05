@@ -1,0 +1,60 @@
+---
+- name: Accept eula
+  copy:
+    src: eula.txt
+    dest: '{{ minecraft_papermc_user_home }}/bin/eula.txt'
+    group: '{{ minecraft_papermc_group }}'
+    owner: '{{ minecraft_papermc_user }}'
+    mode: '0644'
+  notify:
+    - restart-minecraft
+
+- name: Check server.properties for change
+  template:
+    src: server.properties.j2
+    dest: '{{ minecraft_papermc_user_home }}/bin/server.properties.copy'
+    group: '{{ minecraft_papermc_group }}'
+    owner: '{{ minecraft_papermc_user }}'
+    mode: '0644'
+  register: server_properties
+  notify:
+    - restart-minecraft
+
+- name: Copy server.properties
+  copy:
+    src: '{{ minecraft_papermc_user_home }}/bin/server.properties.copy'
+    dest: '{{ minecraft_papermc_user_home }}/bin/server.properties'
+    group: '{{ minecraft_papermc_group }}'
+    owner: '{{ minecraft_papermc_user }}'
+    mode: '0644'
+    remote_src: yes
+  when:
+    - server_properties.changed
+
+- name: Copy further configuration files
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ minecraft_papermc_user_home }}/bin/{{ item.dest }}'
+    group: '{{ minecraft_papermc_group }}'
+    owner: '{{ minecraft_papermc_user }}'
+    mode: '0644'
+  loop:
+    - {src: 'bukkit.yml.j2', dest: 'bukkit.yml'}
+    - {src: 'paper.yml.j2', dest: 'paper.yml'}
+    - {src: 'spigot.yml.j2', dest: 'spigot.yml'}
+  notify:
+    - restart-minecraft
+
+- name: Copy server icon
+  copy:
+    src: server-icon.png
+    dest: '{{ minecraft_papermc_user_home }}/bin/server-icon.png'
+    group: '{{ minecraft_papermc_group }}'
+    owner: '{{ minecraft_papermc_user }}'
+    mode: '0644'
+  with_first_found:
+    - files:
+        - server-icon.png
+      skip: no
+  notify:
+    - restart-minecraft

@@ -1,0 +1,26 @@
+[Unit]
+Description=Minecraft Server
+
+Wants=network.target
+After=network.target
+
+[Service]
+User={{ minecraft_papermc_group }}
+Group={{ minecraft_papermc_user }}
+
+ProtectHome=true
+ProtectSystem=full
+PrivateDevices=true
+NoNewPrivileges=true
+PrivateTmp=true
+
+ReadWriteDirectories={{ minecraft_papermc_user_home }}
+WorkingDirectory={{ minecraft_papermc_user_home }}/bin
+
+KillMode=none
+SuccessExitStatus=0 1
+ExecStart=java -Xms2G -Xmx2G -jar paper-{{ minecraft_papermc_build }}.jar --noconsole
+ExecStop={{ minecraft_papermc_user_home }}/mcrcon/mcrcon -p {{ minecraft_papermc_sp_rcon_password }} stop
+
+[Install]
+WantedBy=multi-user.target

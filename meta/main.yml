@@ -1,0 +1,15 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: minecraft_papermc
+  author: rosaLux161
+  description: Installs and configures Minecraft PaperMC server.
+  license: GPLv3
+  platforms:
+    - name: Debian
+      versions:
+        - buster
+  galaxy_tags:
+    - minecraft
+    - gameserver

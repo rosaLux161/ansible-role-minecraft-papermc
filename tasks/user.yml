@@ -1,0 +1,12 @@
+---
+- name: Ensure minecraft group exists
+  group:
+    name: '{{ minecraft_papermc_group }}'
+    state: present
+
+- name: Ensure minecraft user exists
+  user:
+    name: '{{ minecraft_papermc_user }}'
+    home: '{{ minecraft_papermc_user_home }}'
+    group: '{{ minecraft_papermc_group }}'
+    state: present

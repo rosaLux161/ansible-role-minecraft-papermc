@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: all
+  become: yes
+
+  vars:
+    minecraft_papermc_eula: yes
+    minecraft_papermc_sp_rcon_password: test
+
+  pre_tasks:
+
+  roles:
+    - role: ansible-minecraft-papermc

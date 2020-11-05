@@ -1,0 +1,23 @@
+---
+- name: Install mcrcon
+  unarchive:
+    src: https://github.com/Tiiffi/mcrcon/releases/download/v{{ minecraft_papermc_mcrcon_version }}/mcrcon-{{ minecraft_papermc_mcrcon_version }}-linux-x86-64.tar.gz
+    dest: '{{ minecraft_papermc_user_home }}/mcrcon'
+    remote_src: yes
+    group: '{{ minecraft_papermc_group }}'
+    owner: '{{ minecraft_papermc_user }}'
+    extra_opts:
+      - '--strip-components=1'
+
+- name: Get PaperMC jar file
+  uri:
+    url: 'https://papermc.io/api/v1/paper/{{ minecraft_papermc_version }}/{{ minecraft_papermc_build }}/download'
+    dest: '{{ minecraft_papermc_user_home }}/bin/paper-{{ minecraft_papermc_build }}.jar'
+    group: '{{ minecraft_papermc_group }}'
+    owner: '{{ minecraft_papermc_user }}'
+    mode: '0644'
+    status_code:
+      - '200'
+      - '304'
+  notify:
+    - restart-minecraft
