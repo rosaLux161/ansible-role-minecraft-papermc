@@ -3,12 +3,8 @@
   systemd:
     daemon_reload: yes
 
-- name: enable-minecraft
-  systemd:
-    state: enabled
-    name: minecraft
-
-- name: restart-minecraft
+- name: restart-enable-minecraft
   systemd:
     state: restarted
     name: minecraft
+    enabled: yes

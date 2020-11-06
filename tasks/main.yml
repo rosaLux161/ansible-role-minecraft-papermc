@@ -44,5 +44,4 @@
     mode: '0644'
   notify:
     - reload-systemd
-    - enable-minecraft
-    - restart-minecraft
+    - restart-enable-minecraft
