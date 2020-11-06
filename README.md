@@ -1,5 +1,7 @@
 # ansible-minecraft-papermc
 
+!(https://github.com/rosaLux161/ansible-role-minecraft-papermc/workflows/CI/badge.svg)
+
 This role installs a completely Minecraft PaperMC server.
 
 ## Variables
