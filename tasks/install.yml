@@ -21,4 +21,4 @@
       - '200'
       - '304'
   notify:
-    - restart-minecraft
+    - restart-enable-minecraft

@@ -7,7 +7,7 @@
     owner: '{{ minecraft_papermc_user }}'
     mode: '0644'
   notify:
-    - restart-minecraft
+    - restart-enable-minecraft
 
 - name: Check server.properties for change
   template:
@@ -18,7 +18,7 @@
     mode: '0644'
   register: server_properties
   notify:
-    - restart-minecraft
+    - restart-enable-minecraft
 
 - name: Activate server.properties
   copy:
@@ -43,7 +43,7 @@
     - {src: 'paper.yml.j2', dest: 'paper.yml'}
     - {src: 'spigot.yml.j2', dest: 'spigot.yml'}
   notify:
-    - restart-minecraft
+    - restart-enable-minecraft
 
 - name: Copy server icon
   copy:
@@ -57,4 +57,4 @@
         - server-icon.png
       skip: yes
   notify:
-    - restart-minecraft
+    - restart-enable-minecraft
