@@ -19,7 +19,7 @@ WorkingDirectory={{ minecraft_papermc_user_home }}/bin
 
 KillMode=none
 SuccessExitStatus=0 1
-ExecStart=java -Xms2G -Xmx2G -jar paper-{{ minecraft_papermc_build }}.jar --noconsole
+ExecStart=java -Xms{{ minecraft_papermc_min_ram }}G -Xmx{{ minecraft_papermc_max_ram }}G -jar paper-{{ minecraft_papermc_build }}.jar --noconsole
 ExecStop={{ minecraft_papermc_user_home }}/mcrcon/mcrcon -p {{ minecraft_papermc_sp_rcon_password }} stop
 
 [Install]

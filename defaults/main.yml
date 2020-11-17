@@ -7,13 +7,16 @@ minecraft_papermc_version: '1.16.4'
 minecraft_papermc_build: '282'
 minecraft_papermc_mcrcon_version: '0.7.1'
 
-minecraft_papermc_sp_rcon_port: 25575
+minecraft_papermc_min_ram: '2'
+minecraft_papermc_max_ram: '2'
+
+minecraft_papermc_sp_rcon_port: '25575'
 minecraft_papermc_sp_gamemode: survival
 minecraft_papermc_sp_level_name: world
 minecraft_papermc_sp_motd: This Minecraft server was successfully installed using rosaLux161's ansible role
-minecraft_papermc_sp_query_port: 25565
+minecraft_papermc_sp_query_port: '25565'
 minecraft_papermc_sp_pvp: 'true'
 minecraft_papermc_sp_difficulty: easy
-minecraft_papermc_sp_max_players: 20
+minecraft_papermc_sp_max_players: '20'
 minecraft_papermc_sp_only_mode: 'true'
-minecraft_papermc_sp_server_port: 25565
+minecraft_papermc_sp_server_port: '25565'
