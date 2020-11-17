@@ -4,7 +4,7 @@ minecraft_papermc_group: minecraft
 minecraft_papermc_user_home: '/opt/minecraft'
 
 minecraft_papermc_version: '1.16.4'
-minecraft_papermc_build: '261'
+minecraft_papermc_build: '282'
 minecraft_papermc_mcrcon_version: '0.7.1'
 
 minecraft_papermc_sp_rcon_port: 25575
